@@ -16,9 +16,12 @@ function SendMoney() {
       <h3>Balance: {balance}</h3>
       <form onSubmit={onSubmit}>
         <br />
+        <label htmlFor="transferAmount">Transfer Amount</label>
+        <br />
         <input
           min="0"
           type="number"
+          id="transferAmount"
           value={transferAmount}
           onChange={(e) => setTransferAmount(e.target.value)}
         />
