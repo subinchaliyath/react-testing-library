@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SendMoney() {
+function SendMoney({ user }) {
   const [balance, setBalance] = useState(5000);
   const [transferAmount, setTransferAmount] = useState(0);
   const onSubmit = (e) => {
@@ -16,6 +16,7 @@ function SendMoney() {
       <h3>Balance: {balance}</h3>
       <form onSubmit={onSubmit}>
         <br />
+        <h4>Send Money to: {user}</h4>
         <label htmlFor="transferAmount">Transfer Amount</label>
         <br />
         <input
