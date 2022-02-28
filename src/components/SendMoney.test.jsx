@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import SendMoney from "./SendMoney";
 
-test("if 5000 is sent, the account balnce is updated", () => {
+test("if 5000 is sent, the account balnce is updated", async () => {
   // arrange
   render(<SendMoney />);
 
@@ -17,5 +17,10 @@ test("if 5000 is sent, the account balnce is updated", () => {
     })
   );
   //   screen.debug();
-  expect(screen.getByText(/balance: 4500/i)).toBeInTheDocument();
+  //   expect(screen.getByText(/balance: 4500/i)).toBeInTheDocument();
+
+  //   expect(await screen.findByText(/balance: 4500/i)).toBeInTheDocument();
+  expect(
+    await screen.findByText(/balance: 4500/i, {}, { timeout: 3000 })
+  ).toBeInTheDocument();
 });
